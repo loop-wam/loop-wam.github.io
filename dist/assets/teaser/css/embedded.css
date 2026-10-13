@@ -1,0 +1,159 @@
+/* Styles scoped to the supplied animated teaser and its video dialog. */
+.teaser-live { position: relative; width: 100%; aspect-ratio: 1754 / 758; background: transparent; }
+#loop-visual, #loop-visual > svg { display: block; width: 100%; height: 100%; }
+#loop-visual { outline: none; }
+#loop-visual > svg { overflow: visible; }
+#loop-visual:focus-visible { outline: 2px solid #039ea7; outline-offset: -2px; }
+.teaser-fallback { width: 100%; height: 100%; object-fit: contain; }
+.teaser-playback { display: flex; justify-content: flex-end; gap: 20px; margin-top: 9px; }
+.teaser-playback[hidden] { display: none; }
+.teaser-playback button { border: 0; background: transparent; color: var(--muted); font-size: 12px; padding: 5px 0; }
+.teaser-playback button:hover { color: var(--teal); }
+.teaser-video-card { margin: 0; flex: none; }
+.teaser-video-dialog button:focus-visible { outline: 3px solid #039ea7; outline-offset: 3px; }
+.teaser-video-card {
+  display:block;
+  position:relative;
+  width:100%;
+  height:100%;
+  padding:0;
+  border:1px solid #d5dfe2;
+  border-radius:8px;
+  overflow:hidden;
+  background:#fff;
+  cursor:zoom-in;
+  box-shadow:0 2px 7px #173d4812;
+  font:14px Arial,sans-serif;
+}
+
+.teaser-video-preview {
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:contain;
+  background:#fff;
+  pointer-events:none;
+}
+
+.teaser-video-badges {
+  position:absolute;
+  top:4%;
+  right:3%;
+  display:flex;
+  gap:4px;
+  pointer-events:none;
+  z-index:2;
+}
+
+.teaser-video-badge {
+  display:block;
+  width:29px;
+  height:29px;
+  object-fit:contain;
+  filter:drop-shadow(0 1px 2px #ffffff9c);
+}
+
+.teaser-video-card:focus-visible {
+  outline:3px solid #009fa9;
+  outline-offset:-3px;
+}
+
+.teaser-video-dialog {
+  width:min(900px,94vw);
+  max-width:94vw;
+  max-height:94vh;
+  padding:0;
+  border:1px solid #dde7e9;
+  border-radius:16px;
+  color:#233d47;
+  background:#fff;
+  box-shadow:0 25px 100px #06141966;
+  overflow:auto;
+  font:14px Arial,"PingFang SC",sans-serif;
+}
+
+.teaser-video-dialog::backdrop {
+  background:#071521b8;
+  backdrop-filter:blur(5px);
+}
+
+.teaser-video-dialog-heading {
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:20px;
+  padding:14px 18px;
+  margin:0;
+  font-size:17px;
+  font-weight:600;
+}
+
+.teaser-video-dialog-close {
+  border:0;
+  border-radius:8px;
+  background:#f1f5f6;
+  color:#58737d;
+  font-size:22px;
+  line-height:1;
+  width:34px;
+  height:34px;
+  cursor:pointer;
+}
+
+.teaser-video-dialog-media {
+  position:relative;
+  line-height:0;
+  background:#101b20;
+}
+
+.teaser-video-dialog-player {
+  display:block;
+  width:100%;
+  max-height:calc(90vh - 80px);
+  aspect-ratio:4/3;
+  object-fit:contain;
+  background:#101b20;
+}
+
+.teaser-video-dialog .teaser-video-badges {
+  top:12px;
+  right:12px;
+}
+
+.teaser-video-dialog .teaser-video-badge {
+  width:40px;
+  height:40px;
+}
+
+@media(max-width:650px) {
+  .teaser-video-dialog {
+    width:96vw;
+    max-width:96vw;
+    border-radius:12px;
+  }
+  .teaser-video-dialog-heading {
+    padding:10px 12px;
+    font-size:15px;
+  }
+  .teaser-video-dialog .teaser-video-badge {
+    width:29px;
+    height:29px;
+  }
+}
+
+.teaser-video-dialog-title {
+  margin:0;
+  font:inherit;
+}
+
+.teaser-video-dialog-close {
+  flex-shrink:0;
+}
+
+.teaser-video-task-stack {
+  pointer-events:none;
+}
+
+/* Clip past the PNG white mat and its baked-in pale edge: 44px top / 39px bottom at 2533 x 1095. */
+.teaser-figure { background: transparent; border-radius: 0; }
+#loop-visual [data-background] { clip-path: inset(4% .9% 3.6% .9% round 12px) fill-box; }

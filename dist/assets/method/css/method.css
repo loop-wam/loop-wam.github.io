@@ -1,0 +1,66 @@
+/* Everything is scoped to this component. No changes to the paper's layout. */
+.loopwam-method {
+  position: relative;
+  isolation: isolate;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2400 / 1118;
+  padding: 0;
+  overflow: hidden;
+  background: transparent;
+  line-height: 0;
+  outline: none;
+}
+.loopwam-method > .loopwam-method-base,
+.loopwam-method > .loopwam-method-overlay {
+  position: absolute;
+  display: block;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+}
+.loopwam-method > .loopwam-method-base { object-fit: contain; }
+.loopwam-method[data-overlay-visible="true"] > .loopwam-method-base { visibility: hidden; }
+.loopwam-method > .loopwam-method-overlay { pointer-events: none; overflow: hidden; }
+.loopwam-method:focus-visible { outline: 2px solid #039ea7; outline-offset: -2px; }
+.loopwam-method-controls {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 6px 20px;
+  margin: 9px 0 0;
+  font: 12px/1.5 Arial, "PingFang SC", sans-serif;
+  color: #6d7882;
+}
+.loopwam-method-controls[hidden] { display: none; }
+.loopwam-method-controls button,
+.loopwam-method-controls a {
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  padding: 5px 0;
+  margin: 0;
+  cursor: pointer;
+  text-decoration: none;
+}
+.loopwam-method-controls button:hover,
+.loopwam-method-controls a:hover { color: #039ea7; }
+.loopwam-method-controls button:focus-visible,
+.loopwam-method-controls a:focus-visible { outline: 2px solid #039ea7; outline-offset: 4px; }
+.loopwam-method-controls .loopwam-method-mode[aria-pressed="true"] { color: #8562c1; }
+.loopwam-method-controls button:disabled { opacity: .35; cursor: default; }
+.loopwam-method > .loopwam-method-overlay[hidden] { display: none; }
+@media (max-width: 650px) {
+  .loopwam-method-controls { font-size: 11px; gap: 5px 16px; }
+}
+/* Motion is driven by a pausable requestAnimationFrame loop in method.js.
+   A reduced-motion preference starts with the unmodified original figure. */
