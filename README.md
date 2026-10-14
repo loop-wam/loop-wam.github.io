@@ -1,6 +1,7 @@
 # LoopWAM project page
 
 Source for the [LoopWAM project website](https://loop-wam.github.io/).
+Read the [paper on arXiv](https://arxiv.org/abs/2610.18873).
 The research code is hosted separately at [loop-wam/LoopWAM](https://github.com/loop-wam/LoopWAM).
 
 ## Local preview

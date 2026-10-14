@@ -67,7 +67,6 @@ button:focus-visible, a:focus-visible, video:focus-visible, [tabindex]:focus-vis
 .resource-button svg { width: 17px; height: 17px; flex-shrink: 0; }
 a.resource-button { cursor: pointer; text-decoration: none; }
 a.resource-button:hover { border-color: var(--purple); }
-.coming-soon { color: var(--muted); }
 .hero-film { text-align: left; overflow: hidden; background: #07090a; border: 1px solid var(--line); border-radius: 10px; }
 .hero-film video { width: 100%; aspect-ratio: 16/9; object-fit: contain; }
 
@@ -162,8 +161,6 @@ tr.ours th { color: var(--ink); font-weight: 500; }
 .stage-navigation { width: 100%; justify-content: space-between; display: flex; align-items: center; gap: 22px; flex-shrink: 0; }
 .stage-navigation > span { color: var(--muted); font-size: 13px; }
 .stage .video-frame video { aspect-ratio: 16/9; }
-.stage .video-card figcaption { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; }
-.clip-speed-note { color: var(--muted); font-size: 12px; }
 .result-label { display: inline-flex; align-items: center; gap: 7px; font-size: 13px; }
 .result-label::before { content: ''; width: 5px; height: 5px; border-radius: 50%; background: currentColor; }
 .result-label.success { color: var(--success); }

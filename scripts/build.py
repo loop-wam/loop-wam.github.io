@@ -31,12 +31,7 @@ def card(clip, folding=False, trajectory_number=None):
         title = 'Shirt folding · ' + clip['id'].upper()
         verdict = 'Success' if clip['success'] else 'Failure'
         kind = 'success' if clip['success'] else 'failure'
-        segments = clip.get('speed_segments', [])
-        speed_note = ''
-        if segments:
-            first, last = segments[0], segments[-1]
-            speed_note = f'<span class="clip-speed-note">{first["speed"]:g}× for {first["end"] - first["start"]:g} s · then {last["speed"]:g}×</span>'
-        caption = f'<figcaption><span class="result-label {kind}">{verdict}</span>{speed_note}</figcaption>'
+        caption = f'<figcaption><span class="result-label {kind}">{verdict}</span></figcaption>'
     elif trajectory_number is not None:
         label = f'Trajectory {trajectory_number}'
         title = title + ' · ' + label
@@ -83,7 +78,12 @@ def author_label(name):
 
 
 authors = ''.join(author_label(name) for name in paper['authors'])
-affiliations = ''.join(f'<span>{esc(name)}</span>' for name in paper['affiliations'])
+affiliation_links = {'Dexmal': 'https://www.dexmal.com/', 'Loopeva': 'https://www.loopeva.com/'}
+affiliations = ''.join(
+    f'<a href="{esc(affiliation_links[name])}" target="_blank" rel="noopener noreferrer">{esc(name)}</a>'
+    if name in affiliation_links else f'<span>{esc(name)}</span>'
+    for name in paper['affiliations']
+)
 def evolution(key, title, values, labels, variant='line'):
     points = [(64 + i * 592 / (len(values) - 1), 218 - value * 3) for i, value in enumerate(values)]
     path = 'M ' + ' L '.join(f'{x:.3f} {y:.3f}' for x, y in points)
@@ -167,7 +167,7 @@ page = f'''<!doctype html>
     <p class="author-notes"><span>* Core Contributors</span><span><sup class="author-marker corresponding-marker">†</sup> Corresponding Authors</span></p>
     <div class="affiliations">{affiliations}</div>
     <div class="actions">
-      <button class="resource-button" type="button" disabled>{icon('paper')}<span>Paper <span class="coming-soon">(coming soon)</span></span></button>
+      <a class="resource-button" href="https://arxiv.org/abs/2610.18873" target="_blank" rel="noopener noreferrer">{icon('paper')}<span>Paper</span></a>
       <a class="resource-button" href="https://github.com/loop-wam/LoopWAM" target="_blank" rel="noopener noreferrer">{icon('code')}<span>Code</span></a>
     </div>
     <div class="hero-film">{video(media['overview'], 'LoopWAM overview: multi-task improvement and shirt folding', True)}</div>
@@ -261,7 +261,7 @@ page = f'''<!doctype html>
         <p>After expert post-training, two rounds of deployment-driven learning improve the DOS-W1 model on challenging shirt folding.</p>
       </div>
       {folding_steps}
-      <p class="metric-caption">Evaluation success rates. Trajectory demos play at 4× speed unless noted.</p>
+      <p class="metric-caption">Evaluation success rates. Trajectory demos play at up to 4× speed.</p>
       {''.join(stage_rows)}
     </div>
   </section>
