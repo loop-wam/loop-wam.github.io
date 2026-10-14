@@ -51,6 +51,7 @@ The 25 multi-embodiment task videos play at 1× relative to the supplied source 
 Folding clips are encoded at 4×, except the first Stage 3 clip: its first 6 seconds remain at 1×, followed by 4× speed.
 All folding files should play at the browser's normal 1× rate; their speed changes are baked into the videos.
 Stage assignments and order are recorded in `data/media-manifest.json`.
+Folding videos and posters are named `stage-1-01` through `stage-3-09`, with positions 01–09 matching the left-to-right display order within each stage. The manifest's `source` field retains the original filename for provenance.
 The mixed-speed clip uses `speed_segments` with `start` and `end` in source-video seconds and `playback_speed: null`.
 
 ## GitHub Pages

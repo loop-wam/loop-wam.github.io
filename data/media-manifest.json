@@ -499,11 +499,11 @@
       "playback_speed": 4,
       "clips": [
         {
-          "id": "s14",
+          "id": "stage-1-01",
           "source": "s14.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s14.mp4",
-          "poster": "assets/posters/folding/s14.jpg",
+          "src": "assets/videos/folding/stage-1-01.mp4",
+          "poster": "assets/posters/folding/stage-1-01.jpg",
           "stage": 1,
           "success": true,
           "playback_speed": 4,
@@ -517,11 +517,11 @@
           "audio": false
         },
         {
-          "id": "f53",
+          "id": "stage-1-02",
           "source": "f53.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f53.mp4",
-          "poster": "assets/posters/folding/f53.jpg",
+          "src": "assets/videos/folding/stage-1-02.mp4",
+          "poster": "assets/posters/folding/stage-1-02.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -535,11 +535,11 @@
           "audio": false
         },
         {
-          "id": "f2",
+          "id": "stage-1-03",
           "source": "f2.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f2.mp4",
-          "poster": "assets/posters/folding/f2.jpg",
+          "src": "assets/videos/folding/stage-1-03.mp4",
+          "poster": "assets/posters/folding/stage-1-03.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -553,11 +553,11 @@
           "audio": false
         },
         {
-          "id": "f15",
+          "id": "stage-1-04",
           "source": "f15.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f15.mp4",
-          "poster": "assets/posters/folding/f15.jpg",
+          "src": "assets/videos/folding/stage-1-04.mp4",
+          "poster": "assets/posters/folding/stage-1-04.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -571,11 +571,11 @@
           "audio": false
         },
         {
-          "id": "f52",
+          "id": "stage-1-05",
           "source": "f52.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f52.mp4",
-          "poster": "assets/posters/folding/f52.jpg",
+          "src": "assets/videos/folding/stage-1-05.mp4",
+          "poster": "assets/posters/folding/stage-1-05.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -589,11 +589,11 @@
           "audio": false
         },
         {
-          "id": "f29",
+          "id": "stage-1-06",
           "source": "f29.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f29.mp4",
-          "poster": "assets/posters/folding/f29.jpg",
+          "src": "assets/videos/folding/stage-1-06.mp4",
+          "poster": "assets/posters/folding/stage-1-06.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -607,11 +607,11 @@
           "audio": false
         },
         {
-          "id": "f34",
+          "id": "stage-1-07",
           "source": "f34.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f34.mp4",
-          "poster": "assets/posters/folding/f34.jpg",
+          "src": "assets/videos/folding/stage-1-07.mp4",
+          "poster": "assets/posters/folding/stage-1-07.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -625,11 +625,11 @@
           "audio": false
         },
         {
-          "id": "f33",
+          "id": "stage-1-08",
           "source": "f33.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f33.mp4",
-          "poster": "assets/posters/folding/f33.jpg",
+          "src": "assets/videos/folding/stage-1-08.mp4",
+          "poster": "assets/posters/folding/stage-1-08.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -643,11 +643,11 @@
           "audio": false
         },
         {
-          "id": "f1",
+          "id": "stage-1-09",
           "source": "f1.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f1.mp4",
-          "poster": "assets/posters/folding/f1.jpg",
+          "src": "assets/videos/folding/stage-1-09.mp4",
+          "poster": "assets/posters/folding/stage-1-09.jpg",
           "stage": 1,
           "success": false,
           "playback_speed": 4,
@@ -669,11 +669,11 @@
       "playback_speed": 4,
       "clips": [
         {
-          "id": "s11",
+          "id": "stage-2-01",
           "source": "s11.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s11.mp4",
-          "poster": "assets/posters/folding/s11.jpg",
+          "src": "assets/videos/folding/stage-2-01.mp4",
+          "poster": "assets/posters/folding/stage-2-01.jpg",
           "stage": 2,
           "success": true,
           "playback_speed": 4,
@@ -687,11 +687,11 @@
           "audio": false
         },
         {
-          "id": "s12",
+          "id": "stage-2-02",
           "source": "s12.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s12.mp4",
-          "poster": "assets/posters/folding/s12.jpg",
+          "src": "assets/videos/folding/stage-2-02.mp4",
+          "poster": "assets/posters/folding/stage-2-02.jpg",
           "stage": 2,
           "success": true,
           "playback_speed": 4,
@@ -705,11 +705,11 @@
           "audio": false
         },
         {
-          "id": "s10",
+          "id": "stage-2-03",
           "source": "s10.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s10.mp4",
-          "poster": "assets/posters/folding/s10.jpg",
+          "src": "assets/videos/folding/stage-2-03.mp4",
+          "poster": "assets/posters/folding/stage-2-03.jpg",
           "stage": 2,
           "success": true,
           "playback_speed": 4,
@@ -723,11 +723,11 @@
           "audio": false
         },
         {
-          "id": "f32",
+          "id": "stage-2-04",
           "source": "f32.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f32.mp4",
-          "poster": "assets/posters/folding/f32.jpg",
+          "src": "assets/videos/folding/stage-2-04.mp4",
+          "poster": "assets/posters/folding/stage-2-04.jpg",
           "stage": 2,
           "success": false,
           "playback_speed": 4,
@@ -741,11 +741,11 @@
           "audio": false
         },
         {
-          "id": "f28",
+          "id": "stage-2-05",
           "source": "f28.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f28.mp4",
-          "poster": "assets/posters/folding/f28.jpg",
+          "src": "assets/videos/folding/stage-2-05.mp4",
+          "poster": "assets/posters/folding/stage-2-05.jpg",
           "stage": 2,
           "success": false,
           "playback_speed": 4,
@@ -759,11 +759,11 @@
           "audio": false
         },
         {
-          "id": "f51",
+          "id": "stage-2-06",
           "source": "f51.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f51.mp4",
-          "poster": "assets/posters/folding/f51.jpg",
+          "src": "assets/videos/folding/stage-2-06.mp4",
+          "poster": "assets/posters/folding/stage-2-06.jpg",
           "stage": 2,
           "success": false,
           "playback_speed": 4,
@@ -777,11 +777,11 @@
           "audio": false
         },
         {
-          "id": "f57",
+          "id": "stage-2-07",
           "source": "f57.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f57.mp4",
-          "poster": "assets/posters/folding/f57.jpg",
+          "src": "assets/videos/folding/stage-2-07.mp4",
+          "poster": "assets/posters/folding/stage-2-07.jpg",
           "stage": 2,
           "success": false,
           "playback_speed": 4,
@@ -795,11 +795,11 @@
           "audio": false
         },
         {
-          "id": "f58",
+          "id": "stage-2-08",
           "source": "f58.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f58.mp4",
-          "poster": "assets/posters/folding/f58.jpg",
+          "src": "assets/videos/folding/stage-2-08.mp4",
+          "poster": "assets/posters/folding/stage-2-08.jpg",
           "stage": 2,
           "success": false,
           "playback_speed": 4,
@@ -813,11 +813,11 @@
           "audio": false
         },
         {
-          "id": "f36",
+          "id": "stage-2-09",
           "source": "f36.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f36.mp4",
-          "poster": "assets/posters/folding/f36.jpg",
+          "src": "assets/videos/folding/stage-2-09.mp4",
+          "poster": "assets/posters/folding/stage-2-09.jpg",
           "stage": 2,
           "success": false,
           "playback_speed": 4,
@@ -839,11 +839,11 @@
       "playback_speed": 4,
       "clips": [
         {
-          "id": "s1",
+          "id": "stage-3-01",
           "source": "叠衣服封面_原速.mp4",
           "kind": "folding",
-          "src": "assets/videos/folding/s1-stage3-intro.mp4",
-          "poster": "assets/posters/folding/s1-stage3-intro.jpg",
+          "src": "assets/videos/folding/stage-3-01.mp4",
+          "poster": "assets/posters/folding/stage-3-01.jpg",
           "stage": 3,
           "success": true,
           "playback_speed": null,
@@ -869,11 +869,11 @@
           ]
         },
         {
-          "id": "s3",
+          "id": "stage-3-02",
           "source": "s3.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s3.mp4",
-          "poster": "assets/posters/folding/s3.jpg",
+          "src": "assets/videos/folding/stage-3-02.mp4",
+          "poster": "assets/posters/folding/stage-3-02.jpg",
           "stage": 3,
           "success": true,
           "playback_speed": 4,
@@ -887,11 +887,11 @@
           "audio": false
         },
         {
-          "id": "s5",
+          "id": "stage-3-03",
           "source": "s5.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s5.mp4",
-          "poster": "assets/posters/folding/s5.jpg",
+          "src": "assets/videos/folding/stage-3-03.mp4",
+          "poster": "assets/posters/folding/stage-3-03.jpg",
           "stage": 3,
           "success": true,
           "playback_speed": 4,
@@ -905,11 +905,11 @@
           "audio": false
         },
         {
-          "id": "s8",
+          "id": "stage-3-04",
           "source": "s8.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s8.mp4",
-          "poster": "assets/posters/folding/s8.jpg",
+          "src": "assets/videos/folding/stage-3-04.mp4",
+          "poster": "assets/posters/folding/stage-3-04.jpg",
           "stage": 3,
           "success": true,
           "playback_speed": 4,
@@ -923,11 +923,11 @@
           "audio": false
         },
         {
-          "id": "s6",
+          "id": "stage-3-05",
           "source": "s6.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/s6.mp4",
-          "poster": "assets/posters/folding/s6.jpg",
+          "src": "assets/videos/folding/stage-3-05.mp4",
+          "poster": "assets/posters/folding/stage-3-05.jpg",
           "stage": 3,
           "success": true,
           "playback_speed": 4,
@@ -941,11 +941,11 @@
           "audio": false
         },
         {
-          "id": "f11",
+          "id": "stage-3-06",
           "source": "f11.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f11.mp4",
-          "poster": "assets/posters/folding/f11.jpg",
+          "src": "assets/videos/folding/stage-3-06.mp4",
+          "poster": "assets/posters/folding/stage-3-06.jpg",
           "stage": 3,
           "success": false,
           "playback_speed": 4,
@@ -959,11 +959,11 @@
           "audio": false
         },
         {
-          "id": "f37",
+          "id": "stage-3-07",
           "source": "f37.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f37.mp4",
-          "poster": "assets/posters/folding/f37.jpg",
+          "src": "assets/videos/folding/stage-3-07.mp4",
+          "poster": "assets/posters/folding/stage-3-07.jpg",
           "stage": 3,
           "success": false,
           "playback_speed": 4,
@@ -977,11 +977,11 @@
           "audio": false
         },
         {
-          "id": "f25",
+          "id": "stage-3-08",
           "source": "f25.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f25.mp4",
-          "poster": "assets/posters/folding/f25.jpg",
+          "src": "assets/videos/folding/stage-3-08.mp4",
+          "poster": "assets/posters/folding/stage-3-08.jpg",
           "stage": 3,
           "success": false,
           "playback_speed": 4,
@@ -995,11 +995,11 @@
           "audio": false
         },
         {
-          "id": "f17",
+          "id": "stage-3-09",
           "source": "f17.mov",
           "kind": "folding",
-          "src": "assets/videos/folding/f17.mp4",
-          "poster": "assets/posters/folding/f17.jpg",
+          "src": "assets/videos/folding/stage-3-09.mp4",
+          "poster": "assets/posters/folding/stage-3-09.jpg",
           "stage": 3,
           "success": false,
           "playback_speed": 4,

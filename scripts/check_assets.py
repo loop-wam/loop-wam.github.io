@@ -176,8 +176,8 @@ class Audit:
             if clip.get("playback_speed") != 4:
                 self.error(f"{label}: playback_speed must be 4 without speed_segments.")
             return
-        if stage != 3 or index != 0 or clip.get("id") != "s1" or clip.get("success") is not True:
-            self.error(f"{label}: segmented speed is only allowed for the first successful s1 clip in stage 3.")
+        if stage != 3 or index != 0 or clip.get("id") != "stage-3-01" or clip.get("success") is not True:
+            self.error(f"{label}: segmented speed is only allowed for the first successful clip in stage 3.")
             return
         if clip.get("playback_speed") is not None:
             self.error(f"{label}: speed_segments requires playback_speed=null.")
@@ -246,6 +246,11 @@ class Audit:
                 if any(c.get("stage") != number for c in entries):
                     self.error(f"Folding stage {number}: incorrect clip stage metadata.")
                 for index, clip in enumerate(entries):
+                    name = f"stage-{number}-{index + 1:02}"
+                    if (clip.get("id") != name
+                            or clip.get("src") != f"assets/videos/folding/{name}.mp4"
+                            or clip.get("poster") != f"assets/posters/folding/{name}.jpg"):
+                        self.error(f"Folding stage {number}, position {index + 1}: ID and filenames must use {name}.")
                     self.folding_speed(clip, number, index)
                 if any(type(c.get("success")) is not bool for c in entries):
                     self.error(f"Folding stage {number}: success labels must be boolean.")

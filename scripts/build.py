@@ -28,7 +28,7 @@ def video(clip, title, hero=False):
 def card(clip, folding=False, trajectory_number=None):
     title = clip.get('title', 'Shirt folding')
     if folding:
-        title = 'Shirt folding · ' + clip['id'].upper()
+        title = f'Shirt folding · Stage {clip["stage"]} · Trajectory {trajectory_number}'
         verdict = 'Success' if clip['success'] else 'Failure'
         kind = 'success' if clip['success'] else 'failure'
         caption = f'<figcaption><span class="result-label {kind}">{verdict}</span></figcaption>'
@@ -57,7 +57,7 @@ for group in media['folding_stages']:
     stage = paper['folding']['stages'][number - 1]
     row_id = f'folding-{number}'
     trajectory_caption = '9 deployment trajectories' if number == 3 else '9 random trajectories'
-    stage_rows.append(f'<div class="stage"><div class="stage-header"><div class="stage-title"><h3>{stage["label"]}</h3><p>{esc(stage["description"])}</p></div><div class="stage-navigation"><span>{trajectory_caption}</span>{controls(row_id, stage["label"])}</div></div><div class="carousel" id="{row_id}" tabindex="0" role="region" aria-label="{stage["label"]} trajectory demos">' + ''.join(card(c, folding=True) for c in group['clips']) + '</div></div>')
+    stage_rows.append(f'<div class="stage"><div class="stage-header"><div class="stage-title"><h3>{stage["label"]}</h3><p>{esc(stage["description"])}</p></div><div class="stage-navigation"><span>{trajectory_caption}</span>{controls(row_id, stage["label"])}</div></div><div class="carousel" id="{row_id}" tabindex="0" role="region" aria-label="{stage["label"]} trajectory demos">' + ''.join(card(c, folding=True, trajectory_number=i) for i, c in enumerate(group['clips'], start=1)) + '</div></div>')
 
 generation_rows = []
 for group in media['generation_tasks']:
