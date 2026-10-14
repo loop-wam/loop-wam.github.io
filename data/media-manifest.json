@@ -840,21 +840,33 @@
       "clips": [
         {
           "id": "s1",
-          "source": "s1.mov",
+          "source": "叠衣服封面_原速.mp4",
           "kind": "folding",
-          "src": "assets/videos/folding/s1.mp4",
-          "poster": "assets/posters/folding/s1.jpg",
+          "src": "assets/videos/folding/s1-stage3-intro.mp4",
+          "poster": "assets/posters/folding/s1-stage3-intro.jpg",
           "stage": 3,
           "success": true,
-          "playback_speed": 4,
-          "original_duration": 227.334,
-          "duration": 56.834,
+          "playback_speed": null,
+          "original_duration": 233.0,
+          "duration": 62.75,
           "codec": "H.264",
           "width": 960,
           "height": 540,
           "fps": 24.0,
-          "size": 3390903,
-          "audio": false
+          "size": 4971588,
+          "audio": false,
+          "speed_segments": [
+            {
+              "start": 0,
+              "end": 6,
+              "speed": 1
+            },
+            {
+              "start": 6,
+              "end": 233.0,
+              "speed": 4
+            }
+          ]
         },
         {
           "id": "s3",

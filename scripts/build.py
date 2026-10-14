@@ -31,7 +31,12 @@ def card(clip, folding=False, trajectory_number=None):
         title = 'Shirt folding · ' + clip['id'].upper()
         verdict = 'Success' if clip['success'] else 'Failure'
         kind = 'success' if clip['success'] else 'failure'
-        caption = f'<figcaption><span class="result-label {kind}">{verdict}</span></figcaption>'
+        segments = clip.get('speed_segments', [])
+        speed_note = ''
+        if segments:
+            first, last = segments[0], segments[-1]
+            speed_note = f'<span class="clip-speed-note">{first["speed"]:g}× for {first["end"] - first["start"]:g} s · then {last["speed"]:g}×</span>'
+        caption = f'<figcaption><span class="result-label {kind}">{verdict}</span>{speed_note}</figcaption>'
     elif trajectory_number is not None:
         label = f'Trajectory {trajectory_number}'
         title = title + ' · ' + label
@@ -244,7 +249,7 @@ page = f'''<!doctype html>
     <p class="media-caption">Multi-task deployment and rollout data feedback.</p>
     {steps}
     <p class="metric-caption">Performance across multiple deployment rounds</p>
-    <div class="gallery-toolbar"><h3>Multi-embodiment results after self-improvement</h3><button class="autoplay-toggle" type="button" data-autoplay-toggle aria-pressed="true"><span class="autoplay-dot"></span><span>Autoplay on</span></button></div>
+    <div class="gallery-toolbar"><div class="gallery-heading"><h3>Multi-embodiment results after self-improvement</h3><p class="gallery-speed-note">Videos play at 1× speed.</p></div><button class="autoplay-toggle" type="button" data-autoplay-toggle aria-pressed="true"><span class="autoplay-dot"></span><span>Autoplay on</span></button></div>
     {''.join(task_rows)}
   </section>
 
@@ -256,7 +261,7 @@ page = f'''<!doctype html>
         <p>After expert post-training, two rounds of deployment-driven learning improve the DOS-W1 model on challenging shirt folding.</p>
       </div>
       {folding_steps}
-      <p class="metric-caption">Evaluation success rates. Trajectory demos below play at 4× speed.</p>
+      <p class="metric-caption">Evaluation success rates. Trajectory demos play at 4× speed unless noted.</p>
       {''.join(stage_rows)}
     </div>
   </section>

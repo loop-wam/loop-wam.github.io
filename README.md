@@ -45,8 +45,12 @@ The build does not re-encode media. All runtime assets are included in this repo
 The overview demo is the original 1920×1080, 30 fps video, lasting 3 minutes 34 seconds.
 Its file size is approximately 93.31 MiB. Use Git to upload it; it exceeds GitHub's browser upload limit.
 
-The 27 folding clips are already encoded at 4× their original speed and should play at the browser's normal 1× rate.
-Their stage assignments and order are recorded in `data/media-manifest.json`.
+The 25 multi-embodiment task videos play at 1× relative to the supplied source clips.
+
+Folding clips are encoded at 4×, except the first Stage 3 clip: its first 6 seconds remain at 1×, followed by 4× speed.
+All folding files should play at the browser's normal 1× rate; their speed changes are baked into the videos.
+Stage assignments and order are recorded in `data/media-manifest.json`.
+The mixed-speed clip uses `speed_segments` with `start` and `end` in source-video seconds and `playback_speed: null`.
 
 ## GitHub Pages
 

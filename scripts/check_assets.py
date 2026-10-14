@@ -10,6 +10,7 @@ from collections import Counter
 from html import unescape
 from html.parser import HTMLParser
 import json
+import math
 from pathlib import Path
 import re
 import sys
@@ -169,6 +170,49 @@ class Audit:
         for value in urls:
             self.reference(value, method, "method new URL")
 
+    def folding_speed(self, clip, stage, index):
+        label = f"Folding stage {stage}, clip {clip.get('id', '?')}"
+        if "speed_segments" not in clip:
+            if clip.get("playback_speed") != 4:
+                self.error(f"{label}: playback_speed must be 4 without speed_segments.")
+            return
+        if stage != 3 or index != 0 or clip.get("id") != "s1" or clip.get("success") is not True:
+            self.error(f"{label}: segmented speed is only allowed for the first successful s1 clip in stage 3.")
+            return
+        if clip.get("playback_speed") is not None:
+            self.error(f"{label}: speed_segments requires playback_speed=null.")
+            return
+
+        def finite_number(value):
+            return type(value) in (int, float) and math.isfinite(value)
+
+        original, duration = clip.get("original_duration"), clip.get("duration")
+        segments = clip["speed_segments"]
+        if (not finite_number(original) or original <= 0
+                or not finite_number(duration) or duration <= 0
+                or not isinstance(segments, list) or not segments):
+            self.error(f"{label}: positive finite durations and nonempty speed_segments are required.")
+            return
+        previous_end, expected_duration = 0.0, 0.0
+        for segment in segments:
+            if not isinstance(segment, dict):
+                self.error(f"{label}: each speed segment must be an object.")
+                return
+            start, end, speed = (segment.get(key) for key in ("start", "end", "speed"))
+            if (not all(finite_number(v) for v in (start, end, speed))
+                    or start < 0 or end <= start or speed <= 0):
+                self.error(f"{label}: segments require finite ordered times and positive speeds.")
+                return
+            if not math.isclose(start, previous_end, rel_tol=0, abs_tol=1e-6):
+                self.error(f"{label}: speed_segments must cover from zero without gaps or overlaps.")
+                return
+            expected_duration += (end - start) / speed
+            previous_end = end
+        if not math.isclose(previous_end, original, rel_tol=0, abs_tol=1e-6):
+            self.error(f"{label}: speed_segments must cover the complete original_duration.")
+        if not math.isfinite(expected_duration) or abs(duration - expected_duration) > 0.15:
+            self.error(f"{label}: duration must match the segmented output length within 0.15 seconds.")
+
     def manifest(self, page):
         source = self.root / "data/media-manifest.json"
         try:
@@ -199,8 +243,10 @@ class Audit:
                     self.error(f"Folding stage {number}: expected nine clips.")
                 if group.get("playback_speed") != 4:
                     self.error(f"Folding stage {number}: playback_speed must be 4.")
-                if any(c.get("playback_speed") != 4 or c.get("stage") != number for c in entries):
-                    self.error(f"Folding stage {number}: incorrect clip speed or stage metadata.")
+                if any(c.get("stage") != number for c in entries):
+                    self.error(f"Folding stage {number}: incorrect clip stage metadata.")
+                for index, clip in enumerate(entries):
+                    self.folding_speed(clip, number, index)
                 if any(type(c.get("success")) is not bool for c in entries):
                     self.error(f"Folding stage {number}: success labels must be boolean.")
                 if group.get("success_count") != sum(c.get("success") is True for c in entries):
@@ -230,7 +276,7 @@ class Audit:
             return 1
         count = sum(p.is_relative_to(self.dist) for p in self.files)
         print(f"PASS: {count} dist files; {len(self.referenced)} referenced local assets; no missing files or symlinks.")
-        print("PASS: 25 task, 27 folding (3 × 9 at baked 4× speed), 8 generation clips; HTML order matches manifest.")
+        print("PASS: 25 task, 27 folding (3 × 9; default 4× and any segmented speed validated), 8 generation clips; HTML order matches manifest.")
         print("PASS: teaser/method runtime URLs, SVG resources, CSS URLs and portable paths checked.")
         print("Video speed is checked from metadata; this script does not decode media.")
         return 0
