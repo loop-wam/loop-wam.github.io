@@ -122,19 +122,14 @@ folding_steps = evolution('folding', 'Shirt-folding success rate', paper['foldin
 montage = {'src': 'assets/videos/rollout-30-tasks.mp4', 'poster': 'assets/posters/rollout-30-tasks.jpg'}
 benchmark_json = json.dumps(paper['benchmarks'], ensure_ascii=False).replace('</', '<\\/')
 
-citation_authors = '\n              and '.join(
-    ' and '.join(paper['authors'][i:i + 3]) for i in range(0, len(paper['authors']), 3)
-)
-citation_title = paper['title'].replace('LoopWAM', '{LoopWAM}', 1)
+citation_authors = ' and '.join(paper['authors'])
 bibtex = (
-    '@misc{guo2026loopwam,\n'
-    f'  title = {{{citation_title}}},\n'
-    f'  author = {{{citation_authors}}},\n'
-    '  year = {2026},\n'
-    '  eprint = {2610.18873},\n'
-    '  archivePrefix = {arXiv},\n'
-    '  primaryClass = {cs.RO},\n'
-    '  url = {https://arxiv.org/abs/2610.18873}\n'
+    '@article{guo2026loopwam,\n'
+    f'  title={{{paper["title"]}}},\n'
+    f'  author={{{citation_authors}}},\n'
+    '  journal={arXiv preprint arXiv:2610.18873},\n'
+    '  year={2026},\n'
+    '  url={https://arxiv.org/abs/2610.18873}\n'
     '}'
 )
 
