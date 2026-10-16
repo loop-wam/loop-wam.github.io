@@ -122,6 +122,22 @@ folding_steps = evolution('folding', 'Shirt-folding success rate', paper['foldin
 montage = {'src': 'assets/videos/rollout-30-tasks.mp4', 'poster': 'assets/posters/rollout-30-tasks.jpg'}
 benchmark_json = json.dumps(paper['benchmarks'], ensure_ascii=False).replace('</', '<\\/')
 
+citation_authors = '\n              and '.join(
+    ' and '.join(paper['authors'][i:i + 3]) for i in range(0, len(paper['authors']), 3)
+)
+citation_title = paper['title'].replace('LoopWAM', '{LoopWAM}', 1)
+bibtex = (
+    '@misc{guo2026loopwam,\n'
+    f'  title = {{{citation_title}}},\n'
+    f'  author = {{{citation_authors}}},\n'
+    '  year = {2026},\n'
+    '  eprint = {2610.18873},\n'
+    '  archivePrefix = {arXiv},\n'
+    '  primaryClass = {cs.RO},\n'
+    '  url = {https://arxiv.org/abs/2610.18873}\n'
+    '}'
+)
+
 page = f'''<!doctype html>
 <html lang="en" data-theme="light">
 <head>
@@ -136,12 +152,12 @@ page = f'''<!doctype html>
   <meta property="og:image" content="assets/branding/teaser.webp">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" type="image/png" href="assets/branding/loopwam-mark.png">
-  <link rel="stylesheet" href="styles.css?v=20261012-captions">
+  <link rel="stylesheet" href="styles.css?v=20261016-bibtex">
   <link rel="stylesheet" href="assets/teaser/css/embedded.css?v=20261012-replay">
   <link rel="stylesheet" href="assets/method/css/method.css?v=20261012-transparent">
   <script src="assets/method/js/config.js?v=20261012-transparent" defer></script>
   <script src="assets/method/js/method.js?v=20261012-transparent" defer></script>
-  <script src="app.js?v=20261010-teaser" defer></script>
+  <script src="app.js?v=20261016-bibtex-2" defer></script>
   <script src="evolution.js?v=20261008-2" defer></script>
   <script src="assets/teaser/js/config.js?v=20261010-2" defer></script>
   <script src="assets/teaser/js/collection-animation.js?v=20261010-2" defer></script>
@@ -276,6 +292,14 @@ page = f'''<!doctype html>
   </section>
     </div>
   </div>
+  <section class="section citation-section wrap" id="citation" aria-labelledby="citation-title">
+    <div class="section-heading"><h2 id="citation-title">BibTeX</h2></div>
+    <div class="citation-box">
+      <div class="citation-toolbar"><button type="button" id="copy-bibtex" aria-controls="bibtex-code">Copy BibTeX</button></div>
+      <pre tabindex="0" aria-label="BibTeX citation"><code id="bibtex-code">{esc(bibtex)}</code></pre>
+    </div>
+    <p id="citation-status" class="visually-hidden" role="status" aria-live="polite"></p>
+  </section>
 </main>
 <footer class="footer"><div class="wrap footer-inner"><a class="brand" href="#main" aria-label="LoopWAM home">{mark}<span>LoopWAM</span></a></div></footer>
 <script id="benchmark-data" type="application/json">{benchmark_json}</script>

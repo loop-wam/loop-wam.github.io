@@ -97,6 +97,74 @@
   });
   benchmark('robochallenge');
 
+  const copyBibtexButton = $('#copy-bibtex');
+  const bibtexCode = $('#bibtex-code');
+  if (copyBibtexButton && bibtexCode) {
+    const citationStatus = $('#citation-status');
+    let copying = false;
+    let copyLabelTimer = 0;
+    const fallbackCopy = text => {
+      const focused = document.activeElement;
+      const scrollX = window.scrollX, scrollY = window.scrollY;
+      const selection = window.getSelection();
+      const ranges = selection ? Array.from({length: selection.rangeCount}, (_, i) => selection.getRangeAt(i).cloneRange()) : [];
+      const textarea = document.createElement('textarea');
+      textarea.value = text;
+      textarea.readOnly = true;
+      textarea.tabIndex = -1;
+      textarea.setAttribute('aria-hidden', 'true');
+      textarea.style.cssText = 'position:fixed;left:0;top:0;width:1px;height:1px;padding:0;border:0;opacity:0;font-size:16px;pointer-events:none';
+      document.body.appendChild(textarea);
+      try {
+        textarea.focus({preventScroll: true});
+        textarea.select();
+        textarea.setSelectionRange(0, text.length);
+        return document.execCommand('copy');
+      } catch (_) {
+        return false;
+      } finally {
+        textarea.remove();
+        if (focused?.isConnected) focused.focus({preventScroll: true});
+        if (selection) {
+          selection.removeAllRanges();
+          ranges.forEach(range => selection.addRange(range));
+        }
+        if (window.scrollX !== scrollX || window.scrollY !== scrollY) window.scrollTo({left: scrollX, top: scrollY, behavior: 'instant'});
+      }
+    };
+    copyBibtexButton.addEventListener('click', async () => {
+      if (copying) return;
+      copying = true;
+      clearTimeout(copyLabelTimer);
+      if (citationStatus) citationStatus.textContent = '';
+      let copied = false;
+      try {
+        const text = bibtexCode.textContent;
+        if (window.location.protocol !== 'file:' && navigator.clipboard?.writeText) {
+          try { await navigator.clipboard.writeText(text); copied = true; } catch (_) { /* Try the local-file-compatible fallback. */ }
+        }
+        if (!copied) copied = fallbackCopy(text);
+      } catch (_) {
+        copied = false;
+      } finally {
+        copying = false;
+      }
+      copyBibtexButton.textContent = copied ? 'Copied' : 'Copy BibTeX';
+      if (citationStatus) citationStatus.textContent = copied ? 'BibTeX copied to clipboard.' : 'Copy unavailable. Select the BibTeX and press Control+C or Command+C to copy.';
+      if (copied) {
+        copyLabelTimer = setTimeout(() => { copyBibtexButton.textContent = 'Copy BibTeX'; }, 2000);
+      } else {
+        const selection = window.getSelection();
+        if (selection) {
+          const range = document.createRange();
+          range.selectNodeContents(bibtexCode);
+          selection.removeAllRanges();
+          selection.addRange(range);
+        }
+      }
+    });
+  }
+
   // These links follow the document's scroll position; every chapter stays visible.
   const chapterEntries = $$('.chapter-link').map(link => ({
     link,

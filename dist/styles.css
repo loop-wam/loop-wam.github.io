@@ -170,6 +170,18 @@ tr.ours th { color: var(--ink); font-weight: 500; }
 .generation-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
 .generation-pair video { aspect-ratio: 27/16; }
 .generation-pair figcaption { text-align: center; }
+.citation-section .section-heading { margin-bottom: 28px; }
+.citation-section .section-heading h2 { margin-bottom: 0; }
+.citation-box { padding: 22px 28px 28px; background: #fff; border: 1px solid var(--line); border-radius: 14px; }
+.citation-toolbar { display: flex; justify-content: flex-end; margin-bottom: 16px; }
+#copy-bibtex { min-width: 112px; padding: 9px 15px; border: 1px solid #e2ddf2; border-radius: 24px; background: var(--accent-soft); color: var(--purple); font-size: 13px; }
+#copy-bibtex:hover { background: #eae6f8; }
+.citation-box pre { margin: 0; color: #48505b; font: 13px/1.8 var(--mono); white-space: pre-wrap; overflow-wrap: anywhere; tab-size: 2; }
+.citation-box code { font: inherit; }
+@media (max-width: 640px) {
+  .citation-box { padding: 18px; }
+  .citation-box pre { font-size: 12px; line-height: 1.75; }
+}
 .footer { margin-top: 95px; border-top: 1px solid var(--line); padding-block: 31px; }
 .footer-inner { display: flex; align-items: center; justify-content: center; }
 .footer .brand { color: var(--secondary); font-size: 16px; }
